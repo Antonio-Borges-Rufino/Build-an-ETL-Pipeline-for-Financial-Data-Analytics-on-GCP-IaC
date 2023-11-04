@@ -6,3 +6,7 @@
 
 # Arquitetura
 ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/Architecture.webp)
+
+# Banco de Dados (AWS-RDS SQLServer)
+* Nesse projeto vamos trabalhar com uma instancia SQL-Server da aplicação RDS da AMAZON AWS.
+* Configure de forma padrão a instancia RDS e ative apenas quando necessário.
