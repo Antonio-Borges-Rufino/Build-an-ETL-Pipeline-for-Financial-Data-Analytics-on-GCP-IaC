@@ -10,3 +10,5 @@
 # Banco de Dados (AWS-RDS SQLServer)
 * Nesse projeto vamos trabalhar com uma instancia SQL-Server da aplicação RDS da AMAZON AWS.
 * Configure de forma padrão a instancia RDS e ative apenas quando necessário.
+* Quando voce criar uma instancia MSSQL no RDS da amazon, você precisa alterar suas regras de segurança VPC para aderir ou ao seu ip especifico ou para todos os ips que se conectarem.
+* Para fazer isso, siga redes e segurança/security groups/editar regras de entrada
