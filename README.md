@@ -100,9 +100,11 @@
   Database User: {user_RDS_Admin}
   Password: {senha}
   ```
-*
-*
-*
+* Da mesma forma, crie outro serviço, mas dessa vez de escrita chamado ParquetRecordSetWriter 1.16.0 com compressão SNAPPY.
+* Ainda na parte de serviços de controle, crie um serviços de controle chamado GCPCredentialsControllerService 1.16.0. Nele vamos controlar as credencias GPC. As configurações são descritas abaixo.
+* ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/imagem_2023-11-05_201441752.png)
+* {Espaço para criação do processo de leitura do aws rds}
+* Agora vamos criar o processo de escrita no GPC-Storage. Para isso, inclua o processo PutGCSObject 1.16.0 
 *
 *
 *
