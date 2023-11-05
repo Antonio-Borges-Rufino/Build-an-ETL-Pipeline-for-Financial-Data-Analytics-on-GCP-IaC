@@ -26,6 +26,9 @@
 * Para criar uma maquina virtual no GPC eu utilizei a ferramenta compute engine
 * A imagem abaixo mosta a instancia vm criada. Esse processo é simples e de livre implementação, apenas clicando em nex e escolhendo qual SO vai ser usado na sua instancia.
 * ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/imagem_2023-11-04_205914879.png)
-
+# Criando armazenamento do cloud storage
+* Para criar o armazenamento do cloud storage também é simples, é lá onde vão ficar guardados os registros que virão do AWS.
+* Para isso, apenas crie com as funções padrões, apenas colocando o nome e dando next, o resultado deve parecer com o da imagem abaixo:
+* ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/imagem_2023-11-05_013452593.png)
 # Instalando e configurando Apache-NiFi
 
