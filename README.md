@@ -84,10 +84,22 @@
   network=default --action=ALLOW --rules=tcp:8088 --source-ranges=0.0.0.0/0
   ```
 * Agora nifi pode ser acessado com tranquilidade direto da porta 8088 no link: ip_externo:8088/nifi
-*
-*
-*
-*
+# Implementando o NiFi no Pipeline
+* Acesse o NiFi e crie um novo grupo com nome do projeto.
+* Agora baixe o driver de acesso ao SqlServer
+* ```
+  wget https://github.com/microsoft/mssql-jdbc/releases/download/v12.4.2/mssql-jdbc-12.4.2.jre8.jar
+  ```
+* Agora inicie um novo processor (quem vai fazer a conexão com o banco de dados) e adicione o processo DBCPConnectionPool 1.16.0 como na imagem abaixo.
+* ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/add_control_service.png)
+* Seta as configurações de conexão com o AWS RDS
+* ```
+  Database Connection URL: jdbc:sqlserver://{endpointAWS_RDS};database={Data_Base_Name_AWS_RDS};integratedSecurity=true
+  Database Driver Class Name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  Database Driver Location(s): /home/borgesantonio31/{driver_name}
+  Database User: {user_RDS_Admin}
+  Password: {senha}
+  ```
 *
 *
 *
