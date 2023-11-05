@@ -48,13 +48,42 @@
 * ```
   apt install openjdk-8-jdk
   ```
-*
-*
-*
-*
-*
-*
-*
+* Descompacte o nifi
+* ```
+  tar -xzvf nifi-1.16.0-bin.tar.gz
+  ```
+* Edite o arquivo de propiedades
+* ```
+  nifi-1.16.0/conf/nifi.properties
+  ```
+* Atualize os seguintes parâmetros
+* ```
+  nifi.remote.input.http.enabled = false
+  # web properties #
+  nifi.web.http.host=
+  nifi.web.http.port=8080
+  nifi.web.https.host=
+  nifi.web.https.port=
+  # security properties #
+  nifi.security.keystore=
+  nifi.security.keystoreType=
+  nifi.security.keystorePasswd=
+  nifi.security.keyPasswd=
+  nifi.security.truststore=
+  nifi.security.truststoreType=
+  nifi.security.truststorePasswd=
+  ```
+* Start o serviço do nifi
+* ```
+  ./nifi-1.16.0/bin/nifi.sh start
+  ```
+* Verifique a partir do seu ip externo da VM na porta configurada se o nifi está funcionando
+* Caso o nifi não funcione, atualize a regra de firewall para abrir para todas as conexões tcp na porta 8088. Isso não é adequado para servidor de produção, mas como e so um projeto, não tem problema. A sua regra tem que ficar assim:
+* ```
+  gcloud compute --project=mythic-method-404223 firewall-rules create nifi-regraprojeto3 --direction=INGRESS --priority=1000 --        
+  network=default --action=ALLOW --rules=tcp:8088 --source-ranges=0.0.0.0/0
+  ```
+* Agora nifi pode ser acessado com tranquilidade direto da porta 8088 no link: ip_externo:8088/nifi
 *
 *
 *
