@@ -103,6 +103,8 @@
 * Da mesma forma, crie outro serviço, mas dessa vez de escrita chamado ParquetRecordSetWriter 1.16.0 com compressão SNAPPY.
 * Ainda na parte de serviços de controle, crie um serviços de controle chamado GCPCredentialsControllerService 1.16.0. Nele vamos controlar as credencias GPC. As configurações são descritas abaixo.
 * ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/imagem_2023-11-05_201441752.png)
+* Para incluir as chaves de aplicação você tem que ir no GPC/ IAM/Contas de Serviço/Default Compute Service Acount/Chaves/Adicionar Chaves/JSON
+* Agora você tem uma chave de acesso, copie tudo que tem na chave e cole no campo do serviço de controle chamado Service Account JSON
 * {Espaço para criação do processo de leitura do aws rds}
 * Agora vamos criar o processo de escrita no GPC-Storage. Para isso, inclua o processo PutGCSObject 1.16.0 
 *
