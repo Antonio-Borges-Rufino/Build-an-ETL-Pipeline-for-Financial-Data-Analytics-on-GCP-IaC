@@ -31,4 +31,70 @@
 * Para isso, apenas crie com as funções padrões, apenas colocando o nome e dando next, o resultado deve parecer com o da imagem abaixo:
 * ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/imagem_2023-11-05_013452593.png)
 # Instalando e configurando Apache-NiFi
-
+* Primeiro, inicie a máquina virtual do GPC e entre nela por SSH, no meu caso, escolhi entrar por SSH pelo próprio serviço do GPC.
+* Após entrar na VM, selecione o usuario root da máquina
+* ```
+  sudo su
+  ```
+* Atualize todo o conjunto de pacotes
+* ```
+  apt update
+  ```
+* Baixe a versão do nifi, no meu caso, vou seguir o projeto e vou baixar a versão 1.16
+* ```
+  wget https://archive.apache.org/dist/nifi/1.16.0/nifi-1.16.0-bin.tar.gz
+  ```
+* Instale o JDK
+* ```
+  apt install openjdk-8-jdk
+  ```
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
