@@ -126,4 +126,7 @@
 * Agora é só conectar e executar o pipeline. Como na imagem abaixo. Depois de executar o pipeline, eu parei e atualizei o bucket GPC, e o resultado também está na imagem abaixo
 * ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/execebuckt.png)
 * Aqui é importante lembrar, que dependendo das configurações, toda vez que você fizer alterações na sua base de dados AWS, esse pipeline vai realizar a execução passando os arquivos para o bucket do GPC cloud storage
-# Big Query
+# Cloud Functions -> Dataproc -> BigQuery
+* A próxima fase é construir o pipeline em que vamos usar o cloud functions para executar um código spark que vai ler os dados do storage e vai inclui-los no bigquery.
+* Para executar o JobSpark, temos que usar o dataproc.
+* 
