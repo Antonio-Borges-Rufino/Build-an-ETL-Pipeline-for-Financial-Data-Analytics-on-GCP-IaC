@@ -125,5 +125,5 @@
 * É importante ressaltar que é preciso observar os formatos das tabelas que usamos, no meu caso, deu um erro porque as tabelas que usei tinham colunas com nomes espaçados, então deu erro no meu pipeline. Para isso modifiquei as tabelas, o que não pode ser suficiente em um ambiente de produção
 * Agora é só conectar e executar o pipeline. Como na imagem abaixo. Depois de executar o pipeline, eu parei e atualizei o bucket GPC, e o resultado também está na imagem abaixo
 * ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/execebuckt.png)
-* Aqui é importante lembrar, que dependendod as configurações, toda vez que você fizer alterações na sua base de dados AWS, esse pipeline vai realizar a execução passando os arquivos para o bucket do GPC cloud storage
+* Aqui é importante lembrar, que dependendo das configurações, toda vez que você fizer alterações na sua base de dados AWS, esse pipeline vai realizar a execução passando os arquivos para o bucket do GPC cloud storage
 # Big Query
