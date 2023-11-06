@@ -105,8 +105,23 @@
 * ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/imagem_2023-11-05_201441752.png)
 * Para incluir as chaves de aplicação você tem que ir no GPC/ IAM/Contas de Serviço/Default Compute Service Acount/Chaves/Adicionar Chaves/JSON
 * Agora você tem uma chave de acesso, copie tudo que tem na chave e cole no campo do serviço de controle chamado Service Account JSON
+* Agora vamos criar o processor de leitura da AWS RDS. Para isso, adicione o processor QueryDatabaseTableRecord 1.16.0. Nele vou configurar 3 configurações.
+* ```
+  1° configuração é relacionada a conexão com o AWS RDS, essa configuração é a Database Connection Pooling Service que eu adiciono o serviço de controle DBCPConnectionPool 1.16.0 que criei acima
+  2° configuração é o tipo, no qual coloco MS SQL 2012+
+  3° configuração é a Record Writer onde adicionamos o serviço de controle ParquetRecordSetWriter 1.16.0 que vai gravar os resultados das pesquisas em parquet no bucket do google
+  ```
+* Abaixo está a imagem das configurações 
+* ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/querydatabase.png)
 * {Espaço para criação do processo de leitura do aws rds}
-* Agora vamos criar o processo de escrita no GPC-Storage. Para isso, inclua o processo PutGCSObject 1.16.0 
+* Agora vamos criar o processo de escrita no GPC-Storage. Para isso, inclua o processo PutGCSObject 1.16.0. Nele vamos inserir algumas configurações relacionadas ao bucket do gpc onde vão ser armazenados os dados
+* ```
+  Project ID: É a configuração de ID do seu projeto no GPC, Você pode no selecionador de projetos do lado do nome do google cloud. Lá vai ter um ID associado pra cada projeto.
+  GCP Credentials Provider Service: É a configuração onde vou colocar o serviço de controle GCPCredentialsControllerService 1.16.0. que criei para acessar meu gpc
+  Bucket: É o nome do Bucket que criei anteriormente
+  ```
+* Abaixo está uma imagem demonstrando as configurações
+* ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/putgcsobj.png)
 *
 *
 *
