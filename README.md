@@ -94,7 +94,7 @@
 * ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/add_control_service.png)
 * Seta as configurações de conexão com o AWS RDS
 * ```
-  Database Connection URL: jdbc:sqlserver://{endpointAWS_RDS};database={Data_Base_Name_AWS_RDS};integratedSecurity=true
+  Database Connection URL: jdbc:sqlserver://{endpointAWS_RDS};port=1433;database={Data_Base_Name_AWS_RDS};integratedSecurity=true
   Database Driver Class Name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   Database Driver Location(s): /home/borgesantonio31/{driver_name}
   Database User: {user_RDS_Admin}
