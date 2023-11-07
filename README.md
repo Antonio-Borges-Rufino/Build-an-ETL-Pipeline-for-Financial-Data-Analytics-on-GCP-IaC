@@ -129,4 +129,16 @@
 # Cloud Functions -> Dataproc -> BigQuery
 * A próxima fase é construir o pipeline em que vamos usar o cloud functions para executar um código spark que vai ler os dados do storage e vai inclui-los no bigquery.
 * Para executar o JobSpark, temos que usar o dataproc.
-* 
+# Criação do cluster DataProc
+* No GPC é simples criar um cluster dataproc, basta habilitar as api's e configurar um novo cluster com spark > 2.0.
+* É o cluster dataproc quem vai realizar o job spark
+# Criação do sparkJob
+* Para que possamos passar os arquivos da aws para o bigquery através de gatilhos, precisamos primeiro criar a função no pyspark que irá fazer isso.
+* Essa função no pyspark deve ler os arquivos que são adicionados no data storage e depois escreve-los no bigquery
+* Primeiro, obtenha os conectores do bigquery pra pyspark em [conector](https://github.com/GoogleCloudDataproc/spark-bigquery-connector/releases), esse conector deve condizer com a sua versão do spark no dataproc
+* Faça upload desse conector no seu cloud storage num buckt onde você guarda arquivos.
+* É nesse mesmo bucket que você vai guardar o arquivo python do pyspark que vai fazer a movimentação de arquivos do cloud storage para o big query
+* O Código asseguir é explicado pelos comentários.
+* ```
+  giopjb
+  ```
