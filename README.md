@@ -176,3 +176,4 @@
 * Nesse caso, toda vez que um arquivo novo for adicionado no bucket que etamos lendo, o cloud function vai acionar um script que vai executar o programa python/pyspark anteriormente escrito
 * Vá até a aba do cloud functions e adicione uma nova função, como na imagem abaixo:
 *  ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/addcloudfunc.png)
+*  OBS: O gatilho está errado, o gatilho certo é: Ao (finalizar/criar) arquivo no bucket selecionado
