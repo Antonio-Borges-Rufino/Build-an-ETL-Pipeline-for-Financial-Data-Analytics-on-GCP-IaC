@@ -158,9 +158,20 @@
   .option("header","True") \
   .load("gs://storage-1-data-financial/f5871258-a6f8-4bda-8f0a-576d3e2a37f9") 
   ```
-* Agora, salvamos no nosso dataset criado a tabela lida
+* Agora, salvamos no nosso dataset criado a tabela lida. Aqui é importante entender a options "writeMethod", essa opção é obrigatória na hora de escrever algo no big query
 * ```
   #Save the data to BigQuery
   input_df.write.format('bigquery').option("writeMethod","direct").option("table","{nome_do_dataset}.{nome_tabela}").save()
   ```
 * Pronto, agora podemos salvar como .py e enviar para o cloud storage no mesmo lugar que estar o conector bigquery
+
+# Observação sobre método
+* No projeto original do prokectpro, a ideia e atualizar o bd da aws, rodar o pipeline no NiFi e construir um gatilho no cloud functions para toda vez que chegar um arquivo novo no cloud storage, ele executar o arquivo python/pyspark acima para mandar os arquivos para o qig query.
+* Eu não irei fazer dessa forma, apenas seguirei com o projeto.
+* Para fazer isso, teria que ter a padronização dos arquivos, como, alterações do nome escrito dentro do pipeline do nifi. O que permitira a leitura correta em batch diaria dos arquivos.
+* Por motivos de simplicidade, não irei implentar essas funcionalidades.
+
+#Cloud Function
+* O cloud function tem o objetivo de gerar o gatilho quando um arquivo novo é adicionado ao cloud storage
+* Nesse caso, toda vez que um arquivo novo for adicionado no bucket que etamos lendo, o cloud function vai acionar um script que vai executar o programa python/pyspark anteriormente escrito
+* I
