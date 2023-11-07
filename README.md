@@ -171,7 +171,8 @@
 * Para fazer isso, teria que ter a padronização dos arquivos, como, alterações do nome escrito dentro do pipeline do nifi. O que permitira a leitura correta em batch diaria dos arquivos.
 * Por motivos de simplicidade, não irei implentar essas funcionalidades.
 
-#Cloud Function
+# Cloud Function
 * O cloud function tem o objetivo de gerar o gatilho quando um arquivo novo é adicionado ao cloud storage
 * Nesse caso, toda vez que um arquivo novo for adicionado no bucket que etamos lendo, o cloud function vai acionar um script que vai executar o programa python/pyspark anteriormente escrito
-* I
+* Vá até a aba do cloud functions e adicione uma nova função, como na imagem abaixo:
+*  ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/addcloudfunc.png)
