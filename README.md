@@ -138,7 +138,29 @@
 * Primeiro, obtenha os conectores do bigquery pra pyspark em [conector](https://github.com/GoogleCloudDataproc/spark-bigquery-connector/releases), esse conector deve condizer com a sua versão do spark no dataproc
 * Faça upload desse conector no seu cloud storage num buckt onde você guarda arquivos.
 * É nesse mesmo bucket que você vai guardar o arquivo python do pyspark que vai fazer a movimentação de arquivos do cloud storage para o big query
-* O Código asseguir é explicado pelos comentários.
+* Para tudo isso funcionar, é preciso criar um dataset no bigquery. Para isso abra o cloud shell terminal e digite
 * ```
-  giopjb
+  bq mk {nome_do_dataset}
   ```
+* Primeiro você importa o pyspark e inicia uma sessão do spark. Aqui é importante ver que o conector do big query está sendo passado como parâmetro como config spark.jar. Isso permite que possamos conseguir utilizar o bigquery
+* ```
+  from pyspark.sql import SparkSession
+  spark = SparkSession.builder \
+  .appName("gcs-to-bq") \
+  .config("spark.jars", "gs://{bucket_data_storage}/spark-3.3-bigquery-0.34.0.jar") \
+  .getOrCreate()
+  ```
+* O próximo passo é ler os arquivos do cloud storage, para isso, você lê normalmente apenas passando a URI interna do cloud storage
+* ```
+  input_df = spark \
+  .read \
+  .format("parquet") \
+  .option("header","True") \
+  .load("gs://storage-1-data-financial/f5871258-a6f8-4bda-8f0a-576d3e2a37f9") 
+  ```
+* Agora, salvamos no nosso dataset criado a tabela lida
+* ```
+  #Save the data to BigQuery
+  input_df.write.format('bigquery').option("writeMethod","direct").option("table","{nome_do_dataset}.{nome_tabela}").save()
+  ```
+* Pronto, agora podemos salvar como .py e enviar para o cloud storage no mesmo lugar que estar o conector bigquery
