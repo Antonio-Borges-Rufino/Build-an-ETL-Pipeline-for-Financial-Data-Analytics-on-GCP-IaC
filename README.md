@@ -177,3 +177,39 @@
 * Vá até a aba do cloud functions e adicione uma nova função, como na imagem abaixo:
 *  ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/addcloudfunc.png)
 *  OBS: O gatilho está errado, o gatilho certo é: Ao (finalizar/criar) arquivo no bucket selecionado
+*  Então adicionei as versões das bibliotecas importadas como na imagem abaixo
+*  ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/r1.png)
+*  Agora, escreva o código que submete o arquivo python para o job no dataproc através de uma solicitação http. Como na imagem abaixo.
+*  ![](https://github.com/Antonio-Borges-Rufino/Build-an-ETL-Pipeline-for-Financial-Data-Analytics-on-GCP-IaC/blob/main/r2.png)
+*  Primeiro, eu criei variaveis que guardariam as informações de conexão
+*  ```
+   project_id = {inserir_inform}
+   region = {inserir_inform}
+   cluster_name = {inserir_inform}
+   main_python_file_uri = {inserir_inform}
+   ```
+* Agora, faz-se a conexão como cliente para o dataproc
+* ```
+  job_client = dataproc.JobControllerClient(
+        client_options={"api_endpoint": "{}-dataproc.googleapis.com:443".format(region)}
+    )
+  ```
+* O próximo passo e escrever o dicionário que será enviado na requisição, nele, indicamos o arquivo do job, se necessario, indicamos as bibliotecas e um conjunto de argumentos. Também indicamos qual cluster dataproc vamos utilizar
+* ```
+  job = {
+        "placement": {"cluster_name": cluster_name},
+        "pyspark_job": {
+            "main_python_file_uri": main_python_file_uri,
+            "jar_file_uris": ["gs://storage-1-data-financial/spark-3.3-bigquery-0.34.0.jar"],
+            "args": [],
+        },
+    }
+  ```
+* Por fim, realizamos o request do job através da api do cliente
+* ```
+  operation = job_client.submit_job_as_operation(
+        request={"project_id": project_id, "region": region, "job": job}
+    )
+    response = operation.result()
+  ```
+* Agora o projeto está configurado para toda vez que um arquivo novo for inserido no bucket, ele vai ser processado e uma tabela na no bigquery será criada
